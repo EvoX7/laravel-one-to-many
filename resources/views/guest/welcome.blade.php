@@ -81,7 +81,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Welcome Page
+                    Welcome to <br />
+                    BoolPress
                 </div>
 
                 <div class="links">
