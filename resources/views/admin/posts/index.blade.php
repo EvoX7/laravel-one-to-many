@@ -53,7 +53,7 @@
                                 </td>
                             </tr>
                         @empty
-                            <h3 class="fs-1 text-center mt-5 text-white">No posts available</h3>
+                            <h3 class="fs-1 mt-5">No posts available</h3>
                         @endforelse
                     </tbody>
                 </table>
