@@ -13,7 +13,7 @@
             </div>
             <div class="card-body">
                 <p class="card-text fst-italic">{{ $post->post_content }}</p>
-                <p class="card-text font-weight-bold">{{ $post->author }}</p>
+                <p class="card-text font-weight-bold">{{ $post->user->name }}</p>
                 <p class="card-text fst-italic">{{ $post->post_date }}</p>
             </div>
         </div>

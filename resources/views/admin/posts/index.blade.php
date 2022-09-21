@@ -34,7 +34,7 @@
                         @forelse ($posts as $post)
                             <tr>
                                 <td class="fw-bold">{{ $post->id }}</td>
-                                <td class="font-weight-bold">{{ $post->author }}</td>
+                                <td class="font-weight-bold">{{ $post->user->name }}</td>
                                 <td class="fw-bold"><a class="font-weight-bold"
                                         href="{{ route('admin.posts.show', $post->id) }}">{{ $post->title }}</a></td>
 
