@@ -10,7 +10,13 @@
             <div class="card-header">
                 <h3 class="card-title font-weight-bold">{{ $post->title }}</h3>
                 <img class="w-50 rounded-4 p-2" src="{{ $post->post_img }}" alt="Image_url">
-                <p>Category: <span class="badge badge-pill text-light mt-4" style="background-color: {{ $post->category->color }} "> {{ $post->category->name }} </span></p>
+                <p>Category: <span class="badge badge-pill text-light w-75"
+                        @if (isset($post->category)) style="background-color: {{ $post->category->color }} "> {{ $post->category->name }} 
+                    @else 
+                    style="background-color: grey"
+                    Unlisted 
+                    @endif
+                        </span></p>
             </div>
             <div class="card-body">
                 <p class="card-text fst-italic">{{ $post->post_content }}</p>

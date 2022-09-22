@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Post;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,7 +40,8 @@ class PostController extends Controller
     public function create()
     {
         $post = new Post();
-        return view('admin.posts.create', compact('post'));
+        $categories = Category::all();
+        return view('admin.posts.create', ['post' => $post, 'categories' => $categories]);
     }
 
     /**
@@ -88,7 +90,9 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::findOrfail($id);
-        return view('admin.posts.edit', compact('post'));
+        $categories = Category::all();
+
+        return view('admin.posts.edit', ['post' => $post, 'categories' => $categories]);
     }
 
     /**
@@ -101,7 +105,7 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        
+
         $validated = $request->validate($this->validationRules);
 
         $post = Post::findOrfail($id);

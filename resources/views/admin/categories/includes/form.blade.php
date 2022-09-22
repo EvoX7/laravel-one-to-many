@@ -23,17 +23,13 @@
 {{-- Category --}}
 <div class="mb-3">
     <label for="category" class="form-label">Choose category</label>
-    <select type="text" class="form-control" name="category" id="category" required>
+    <select type="text" class="form-control" name="category" id="category">
+        <option value="">Unlisted</option>
         @foreach ($categories as $category)
-            <option value="{{ old('category', $category->id) }}" 
-                @if ($category->id === )
-                    
-                @else
-                    
-                @endif
-                
-                
-                >
+            <option value="{{ old('category', $category->id) }}"
+                @isset($post->category)
+                {{ $category->id === $post->category->id ? 'selected' : '' }}
+                @endisset>
                 {{ $category->name }}
             </option>
         @endforeach
