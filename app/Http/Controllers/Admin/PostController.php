@@ -14,7 +14,7 @@ class PostController extends Controller
     // Validation Rules
 
     protected $validationRules = [
-        'author' => 'required|min:5|max:150',
+        // 'author' => 'required|min:5|max:150',
         'title' =>  'required|min:5|max:150',
         'post_img' => 'active_url',
         'post_content' => 'required|min:50|max:255',
@@ -106,19 +106,18 @@ class PostController extends Controller
     {
         $data = $request->all();
 
-        $validated = $request->validate($this->validationRules);
-
+        // $validated = $request->validate($this->validationRules);
         $post = Post::findOrfail($id);
 
-        $post->author = $data['author'];
+        $post->user_id = Auth::user()->id;
         $post->title = $data['title'];
-        $post->post_img = $data['post_img'];
+        $post->post_url = $data['post_url'];
         $post->post_content = $data['post_content'];
         $post->post_date = $data['post_date'];
 
         $post->save();
 
-        return redirect()->route('admin.posts.index', compact('post'))->with('created', $post->title);
+        return redirect()->route('admin.posts.show', $post->id)->with('created', $post->title);
     }
 
     /**

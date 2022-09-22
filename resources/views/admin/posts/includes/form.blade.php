@@ -9,11 +9,22 @@
         </div>
     @enderror
 </div>
+{{-- Author --}}
+<div class="mb-3">
+    <label for="title" class="form-label">Author</label>
+    <input type="text" class="form-control" name="user_id" id="user_id" value="{{ old('user_id', $post->user->name) }}"
+        required>
+    @error('user_id')
+        <div class="alert alert-danger">
+            {{ $message }}
+        </div>
+    @enderror
+</div>
 {{-- Image URL --}}
 <div class="mb-3">
     <label for="post_url" class="form-label">Image URL</label>
     <input type="text" class="form-control" name="post_url" id="post_url"
-        value="{{ old('post_url', $post->post_img) }}">
+        value="{{ old('post_url', $post->post_url) }}">
     @error('postURL')
         <div class="alert alert-danger">
             {{ $message }}

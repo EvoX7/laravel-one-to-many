@@ -44,7 +44,7 @@
                                         @else 
                                         style="background-color: grey"
                                         Unlisted
-                                         @endif
+                                        @endif
                                         </span>
 
                                 </td>
