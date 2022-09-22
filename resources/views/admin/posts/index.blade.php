@@ -7,7 +7,7 @@
             <div class="col-12">
 
                 <h1 class="mt-3 mb-5 text-center">List Post</h1>
-                
+
                 @if (session('delete'))
                     <div class="alert alert-danger">
                         "{{ session('delete') }}" - has been removed successfully.
@@ -22,12 +22,13 @@
                     New Post</a>
                 <table class="table table-info table-striped">
                     <thead>
-                        <th  scope="col">Id</th>
-                        <th  scope="col">Author</th>
-                        <th  scope="col">Title</th>
-                        <th  scope="col">Date</th>
-                    
-                            
+                        <th scope="col">Id</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Date</th>
+
+
                     </thead>
                     <tbody>
 
@@ -36,8 +37,11 @@
                                 <td class="fw-bold">{{ $post->id }}</td>
                                 <td class="font-weight-bold">{{ $post->user->name }}</td>
                                 <td class="fw-bold"><a class="font-weight-bold"
-                                        href="{{ route('admin.posts.show', $post->id) }}">{{ $post->title }}</a></td>
-
+                                        href="{{ route('admin.posts.show', $post->id) }}">{{ $post->title }}</a>
+                                </td>
+                                <td> <span class="badge badge-pill text-light w-75"
+                                        style="background-color: {{ $post->category->color }} "> {{ $post->category->name }}
+                                    </span></td>
                                 <td>{{ $post->post_date }}</td>
                                 <td>
                                     <a class="btn btn-primary font-weight-bold"

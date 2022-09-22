@@ -1,4 +1,6 @@
 <?php
+
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -15,10 +17,12 @@ class Posts_Table_Seeder extends Seeder
     {
 
         $allUser = User::all();
+        $categories = Category::all();
 
         for ($i = 0; $i < 200; $i++) {
             $newPost = new Post();
             $newPost->user_id = $faker->randomElement($allUser)->id;
+            $newPost->category_id = $faker->randomElement($categories)->id;
             $newPost->title = $faker->realText(40);
             $newPost->author = $faker->userName(40);
             $newPost->post_date = $faker->dateTime();

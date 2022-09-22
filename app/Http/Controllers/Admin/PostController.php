@@ -102,7 +102,6 @@ class PostController extends Controller
     {
         $data = $request->all();
         
-
         $validated = $request->validate($this->validationRules);
 
         $post = Post::findOrfail($id);
