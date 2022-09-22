@@ -12,7 +12,7 @@
 {{-- Author --}}
 <div class="mb-3">
     <label for="title" class="form-label">Author</label>
-    <input type="text" class="form-control" name="user_id" id="user_id" value="{{ old('user_id', $post->user->name) }}"
+    <input type="text" class="form-control" name="user_id" id="user_id" value="{{ old('user->name', $post->user_id) }}"
         required>
     @error('user_id')
         <div class="alert alert-danger">

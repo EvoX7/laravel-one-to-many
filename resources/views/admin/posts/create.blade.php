@@ -10,8 +10,7 @@
                     @csrf
                     @method('POST')
                     @include('admin.posts.includes.form')
-                    <button type="submit" class="btn btn-primary font-weight-bold"><a
-                            href="{{ route('admin.posts.index', $post->id) }}">Add new</a></button>
+                    <button type="submit" class="btn btn-primary font-weight-bold">Add new</button>
                 </form>
             </div>
         </div>
