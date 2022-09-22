@@ -6,12 +6,12 @@
         <div class="row">
             <div class="col-6 offset-3">
                 <h1 class="mt-3 mb-3 text-center">Edit</h1>
-                <form class="font-weight-bold" action="{{ route('admin.categories.update', $post->user->name) }}" method="POST">
+                <form class="font-weight-bold" action="{{ route('admin.categories.update', $category->name) }}" method="POST">
                     @csrf
                     @method('PUT')
                     @include('admin.categories.includes.form')
                     <a class="btn btn-primary font-weight-bold"
-                    href="{{ route('admin.posts.show', $post->id) }}">Modify</a>
+                    href="{{ route('admin.categories.show', $category->id) }}">Modify</a>
                 </form>
                 
             </div>

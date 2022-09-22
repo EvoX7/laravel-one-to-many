@@ -24,7 +24,7 @@
                     <thead>
                         <th scope="col">Id</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Slug/th>
+                        <th scope="col">Slug</th>
                         <th scope="col">Color</th>
 
 
