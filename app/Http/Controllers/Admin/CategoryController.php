@@ -26,7 +26,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        
+        $category = Category::all();
+        return view('admin.categories.create', compact('category'));
     }
 
     /**
@@ -47,8 +49,11 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
+
     {
-        return view('admin.categories.show', compact('id'));
+
+        $category = Category::findOrFail($id);
+        return view('admin.categories.show', compact('category'));
     }
 
     /**
@@ -59,6 +64,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
+
+        
+        $category = Category::all();
         return view('admin.categories.edit', compact('id'));
     }
 
@@ -71,6 +79,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $category = Category::findOrFail($id);
         return redirect()->route('admin.categories.show', compact('id'));
     }
 
@@ -82,6 +92,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        return redirect()->route('admin.categories.index');
+        $category = Category::find($id);
+
+        $category->delete($id);
+
+        return redirect()->route('admin.categories.index')->with('delete', $category->name);
     }
 }
